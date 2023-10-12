@@ -7,4 +7,4 @@ services:
       context: ..
       dockerfile: deploy/Dockerfile
     env_file:
-      - deploy/docker.env
+      - docker.env
