@@ -5,9 +5,11 @@ LABEL MAINTAINER="@weidonggg"
 ENV GIT_BRANCH master
 ENV TIMEZONE Asia/Shanghai
 
-COPY docker-python-entrypoint /usr/local/bin/
-COPY qrcode /usr/local/bin/
-COPY ../jd_seckill /app
+COPY deploy/docker-python-entrypoint /usr/local/bin/
+COPY deploy/qrcode /usr/local/bin/
+COPY jd_seckill /app
+
+WORKDIR /app
 
 RUN set -ex; \
     ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
@@ -33,14 +35,6 @@ RUN set -ex; \
                    libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
                    libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
                    libnss3; \
-      \
-      # clone jd seckill code.
-      # git clone -b $GIT_BRANCH https://github.com/huanghyw/jd_seckill.git /app; \
-      cd /app \
-        && rm -rf .git; \
-      \
-       \
-        \
       sed -i \
         -e 's/^eid.*/eid=$JD_SECKILL_EID/g' \
         -e 's/^fp.*/fp=$JD_SECKILL_FP/g' \
@@ -78,9 +72,6 @@ RUN set -ex; \
       # clean apt cache.
       apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
       rm -rf /var/lib/apt/lists/*
-
-
-WORKDIR /app
 
 ENTRYPOINT ["docker-python-entrypoint"]
 

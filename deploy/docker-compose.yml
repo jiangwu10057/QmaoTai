@@ -2,9 +2,9 @@ version: "2.2"
 services:
   jd-seckill:
     container_name: jd-seckill
-    image: huanghyw/jd-seckill:latest
+    image: jd-seckill
     build:
-      context: ../dockerfile
+      context: ..
       dockerfile: Dockerfile
     env_file:
-      - ../dockerfile/docker.env
+      - docker.env
