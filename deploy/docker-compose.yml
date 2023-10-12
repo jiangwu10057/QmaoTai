@@ -5,6 +5,6 @@ services:
     image: jd-seckill
     build:
       context: ..
-      dockerfile: Dockerfile
+      dockerfile: deploy/Dockerfile
     env_file:
-      - docker.env
+      - deploy/docker.env
