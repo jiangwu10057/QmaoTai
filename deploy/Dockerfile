@@ -43,6 +43,7 @@ RUN set -ex; \
         -e 's/^continue_time.*/continue_time=$JD_SECKILL_CONTINUE_TIME/g' \
         -e 's/^default_user_agent.*/default_user_agent=$JD_SECKILL_DEFAULT_USER_AGENT/g' \
         -e 's/^random_useragent.*/random_useragent=$JD_SECKILL_RANDOM_USERAGENT/g' \
+        -e 's/^open_auto_get_eid_fp.*/open_auto_get_eid_fp=$OPEN_AUTO_GET_EID_FP/g' \
         -e 's/^payment_pwd.*/payment_pwd=$JD_SECKILL_PAYMENT_PWD/g' \
         -e 's/^server_chan_enable.*/server_chan_enable=$JD_SECKILL_SERVER_CHAN_ENABLE/g' \
         -e 's/^server_chan_sckey.*/server_chan_sckey=$JD_SECKILL_SERVER_CHAN_SCKEY/g' \
