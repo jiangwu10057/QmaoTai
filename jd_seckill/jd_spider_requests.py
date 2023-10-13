@@ -13,10 +13,10 @@ import asyncio
 from lxml import etree
 from concurrent.futures import ProcessPoolExecutor
 
-from .jd_logger import logger
-from .timer import Timer
-from .config import global_config
-from .exception import SKException
+from jd_logger import logger
+from timer import Timer
+from config import global_config
+from exception import SKException
 from .util import (
     parse_json,
     send_wechat,
