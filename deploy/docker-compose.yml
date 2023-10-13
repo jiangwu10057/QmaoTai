@@ -9,4 +9,4 @@ services:
     env_file:
       - docker.env
     volumes:
-      - ../jd-seckill:/app
+      - ../jd_seckill:/app
